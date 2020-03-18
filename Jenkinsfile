@@ -54,7 +54,7 @@ pipeline{
                     mimeType: 'text/html',to: "avinash.karimikonda@accoliteindia.com"
             }
          success {
-               emailext attachmentsPattern: 'target/cucumber-html-reports/overview-features.html', body: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) success.", 
+               emailext attachmentsPattern: '/var/lib/jenkins/jobs/cucu/builds/14/cucumber-html-reports/overview-features.html', body: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) success.", 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                     mimeType: 'text/html',to: "avinash.karimikonda@accoliteindia.com"
           }      
