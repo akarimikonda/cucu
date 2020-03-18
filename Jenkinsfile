@@ -52,12 +52,12 @@ pipeline{
         failure {
             emailext attachmentsPattern: 'target/cucumber.json', body: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) failed", 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failed", 
-                    mimeType: 'HTML (text/html)',to: "avinash.karimikonda@accoliteindia.com"
+                    mimeType: 'html',to: "avinash.karimikonda@accoliteindia.com"
             }
          success {
                emailext attachmentsPattern: 'target/overview-features.html', body: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) success.", 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
-                    mimeType: 'HTML (text/html)',to: "avinash.karimikonda@accoliteindia.com"
+                    mimeType: 'html',to: "avinash.karimikonda@accoliteindia.com"
           }      
     }
 
