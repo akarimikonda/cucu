@@ -40,6 +40,7 @@ pipeline{
 					sh 'ls'
 					sh 'pwd'
 					sh 'ls target'
+					sh "cp /var/lib/jenkins/jobs/cucu/builds/${env.BUILD_NUMBER}/cucumber-html-reports/overview-features.html target/"
 
             }
 
@@ -54,7 +55,7 @@ pipeline{
                     mimeType: 'text/html',to: "avinash.karimikonda@accoliteindia.com"
             }
          success {
-               emailext attachmentsPattern: '/var/lib/jenkins/jobs/cucu/builds/14/cucumber-html-reports/overview-features.html', body: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) success.", 
+               emailext attachmentsPattern: 'target/overview-features.html', body: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) success.", 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                     mimeType: 'text/html',to: "avinash.karimikonda@accoliteindia.com"
           }      
